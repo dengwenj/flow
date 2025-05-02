@@ -1,6 +1,8 @@
 <script setup lang="ts">
 // import Started from './demo/01_started/index.vue'
-import VueNode from './demo/02_vue_node/index.vue'
+// import VueNode from './demo/02_vue_node/index.vue'
+// import HB from './demo/03_画布/index.vue'
+import Node from './demo/04_节点/index.vue'
 </script>
 
 <template>
@@ -8,5 +10,11 @@ import VueNode from './demo/02_vue_node/index.vue'
   <!-- <Started /> -->
 
   <!-- Vue 节点 使得开发更加简单 -->
-  <VueNode />
+  <!-- <VueNode /> -->
+
+  <!-- 画布 -->
+  <!-- <HB /> -->
+
+  <!-- 节点 -->
+  <Node />
 </template>
