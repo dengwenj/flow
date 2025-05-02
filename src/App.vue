@@ -3,7 +3,8 @@
 // import VueNode from './demo/02_vue_node/index.vue'
 // import HB from './demo/03_画布/index.vue'
 // import Node from './demo/04_节点/index.vue'
-import Edge from './demo/05_边/index.vue'
+// import Edge from './demo/05_边/index.vue'
+import LJZ from './demo/06_连接桩/index.vue'
 </script>
 
 <template>
@@ -20,5 +21,8 @@ import Edge from './demo/05_边/index.vue'
   <!-- <Node /> -->
 
   <!-- 边 -->
-  <Edge />
+  <!-- <Edge /> -->
+
+  <!-- 连接桩 -->
+  <LJZ />
 </template>
