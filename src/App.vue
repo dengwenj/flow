@@ -2,7 +2,8 @@
 // import Started from './demo/01_started/index.vue'
 // import VueNode from './demo/02_vue_node/index.vue'
 // import HB from './demo/03_画布/index.vue'
-import Node from './demo/04_节点/index.vue'
+// import Node from './demo/04_节点/index.vue'
+import Edge from './demo/05_边/index.vue'
 </script>
 
 <template>
@@ -16,5 +17,8 @@ import Node from './demo/04_节点/index.vue'
   <!-- <HB /> -->
 
   <!-- 节点 -->
-  <Node />
+  <!-- <Node /> -->
+
+  <!-- 边 -->
+  <Edge />
 </template>
