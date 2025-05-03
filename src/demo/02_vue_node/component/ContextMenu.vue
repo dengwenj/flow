@@ -22,7 +22,9 @@ console.log(node)
         </MenuItem>
       </Menu>
     </template>
-    <div class="cm">图标</div>
+    <div class="cm">
+      <img src="../../../../public/vite.svg" alt="">
+    </div>
   </Dropdown>
 </template>
 

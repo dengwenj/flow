@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <svg width="300" height="300" style="border: 1px solid red;">
+    <!-- <path d="M 20 200 h 100" stroke="blue" stroke-width="1.5" /> -->
+    <!-- <path d="M 20 200 L 100 200 L 100 100 h 100" stroke="blue" stroke-width="1.5" fill="none" /> -->
+     <!--
+      移动命令
+        M x y 或 m dx dy：将画笔移动到指定的点，不绘制任何内容。M 是绝对坐标，m 是相对坐标。
+      直线命令
+        L x y 或 l dx dy：从当前点绘制一条直线到指定的点。
+        H x 或 h dx：绘制一条水平直线。
+        V y 或 v dy：绘制一条垂直直线。
+     -->
+    <path d="M 20 200 h 100 v -100 h 100" stroke="blue" stroke-width="1.5" fill="none" />
+  </svg>
+
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <path 
+      d="M 20 100 h 60 a 10 10 0 0 1 10 10 v 60 a 10 10 0 0 0 10 10 h 60" 
+      stroke="blue" 
+      stroke-width="1.5"
+      fill="none" />
+  </svg> -->
+
+</body>
+</html>
