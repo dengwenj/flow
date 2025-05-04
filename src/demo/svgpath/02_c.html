@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <svg width="300" height="300" style="border: 1px solid red;">
+    <path d="M10 50 L 20 200 L 100 100 L 200 200" stroke="red" stroke-width="1.5" fill="none" />
+    <!-- 
+      贝塞尔三次曲线
+      C x1 y1, x2 y2, x y：大写 C 是绝对定位，通过两个控制点 (x1, y1) 、 (x2, y2) 和终点 (x, y) 绘制三次贝塞尔曲线 。比如 C 20 20, 80 80, 100 100 
+    -->
+    <path d="M10 50 C 20 200, 100 100, 200 200" stroke="blue" stroke-width="1.5" fill="none" />
+  </svg>
+</body>
+</html>
