@@ -4,7 +4,8 @@
 // import HB from './demo/03_画布/index.vue'
 // import Node from './demo/04_节点/index.vue'
 // import Edge from './demo/05_边/index.vue'
-import LJZ from './demo/06_连接桩/index.vue'
+// import LJZ from './demo/06_连接桩/index.vue'
+import CustomLJZ from './demo/07_自定义连接器/index.vue'
 </script>
 
 <template>
@@ -24,5 +25,8 @@ import LJZ from './demo/06_连接桩/index.vue'
   <!-- <Edge /> -->
 
   <!-- 连接桩 -->
-  <LJZ />
+  <!-- <LJZ /> -->
+
+  <!-- 自定义连接桩 -->
+  <CustomLJZ />
 </template>
