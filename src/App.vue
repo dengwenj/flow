@@ -7,7 +7,8 @@
 // import LJZ from './demo/06_连接桩/index.vue'
 // import CustomLJZ from './demo/07_自定义连接器/index.vue'
 // import BU from './demo/08_节点和边的一些需求/index.vue'
-import Data from './demo/09_data/index.vue'
+// import Data from './demo/09_data/index.vue'
+import ToImage from './demo/10_toImage/index.vue'
 </script>
 
 <template>
@@ -36,5 +37,8 @@ import Data from './demo/09_data/index.vue'
   <!-- <BU /> -->
 
   <!-- 数据 -->
-  <Data />
+  <!-- <Data /> -->
+
+  <!-- 保存为图片 -->
+  <ToImage />
 </template>
