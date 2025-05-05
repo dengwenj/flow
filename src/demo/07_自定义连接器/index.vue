@@ -8,7 +8,7 @@ const containerRef = ref()
 onMounted(() => {
   const graph = new Graph({
     container: containerRef.value,
-    width: 800,
+    width: 1500,
     height: 800,
     background: {
       color: '#f1f1f1'
@@ -50,7 +50,6 @@ onMounted(() => {
   })
 
   // 自定义连接桩
-  // TODO 拖动节点时连接线还有问题
   Graph.registerConnector('custom-connect', (sourcePort, targetPort) => {
     const diffX = Math.round(targetPort.x) - Math.round(sourcePort.x)
     const diffY = Math.round(targetPort.y) - Math.round(sourcePort.y)
@@ -59,14 +58,18 @@ onMounted(() => {
 
     const M = `M ${sourcePort.x} ${sourcePort.y} `
 
+    // 横向一半的距离
     const halfDistance = Math.ceil(diffX / 2)
-
-    const radiusX = Math.ceil(halfDistance / 12) * 4
-    const radiusY =  Math.ceil(halfDistance / 12) * 5
+    let radiusX = Math.ceil(halfDistance / 12) * 4
+    let radiusY = Math.ceil(halfDistance / 12) * 5
+    // 防止 Y半径交叉
+    if (Math.abs(diffY) <= radiusY * 2) {
+      radiusY = Math.abs(diffY) / 2
+    }
     // x 轴移动
     const h = `h ${halfDistance - radiusX} `
 
-    // 比值 12 : 4 : 5
+    // 横向比值 12 : 4 : 5
     // 第一个值是 圆弧的 x 半径
     // 第二个值是 圆弧的 y 半径
     // 第三个值是 圆弧相对于坐标轴的旋转角度（单位：度）
@@ -154,7 +157,7 @@ onMounted(() => {
       attrs: {
         line: {
           stroke: colors[index],
-          strokeWidth: 1.3,
+          strokeWidth: 1.5,
           targetMarker: 'block', // 实心箭头
         },
       },
