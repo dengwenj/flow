@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Graph } from '@antv/x6'
+import { Edge, Graph, Node } from '@antv/x6'
 import { register } from '@antv/x6-vue-shape';
 import { onMounted, ref } from 'vue';
 import ContextMenu from '../02_vue_node/component/ContextMenu.vue';
@@ -123,7 +123,7 @@ onMounted(() => {
   })
 
   const initPosition = 300
-  const targetNodes = []
+  const targetNodes: Node[] = []
   for (let i = 0; i < 5; i++) {
     // 目标节点
     const target = graph.addNode({
@@ -166,6 +166,93 @@ onMounted(() => {
         name: 'custom-connect'
       }
     })
+  })
+
+  setTimeout(() => {
+    // 移除节点
+    // graph.removeNode(targetNodes[1])
+    // 还要删除 数组里面的
+  }, 3000);
+
+  // 右键空白处
+  graph.on('blank:contextmenu', (e) => {
+    graph.addNode({
+      shape: 'custom-vue-node',
+      x: e.x,
+      y: e.y,
+      ports: {
+        items: [
+          {
+            id: 'port_3',
+            group: 'left',
+          },
+          {
+            id: 'port_4',
+            group: 'right',
+          },
+        ],
+      },
+    })
+    console.log(e, '右键空白处')
+  })
+
+  // 右键node节点
+  graph.on('node:contextmenu', (e) => {
+    console.log(e, '右键节点')
+  })
+
+
+  // 定义距离阈值
+  const threshold = 150;
+  let edge: Edge
+  graph.on('node:changed', (e) => {
+    // 灰色才执行
+
+    // 节点的坐标
+    const targetPos = e.node.getPosition()
+    let nearestSource: any = null;
+    let minDistance = Infinity;
+
+    targetNodes
+    // 计算目标节点与每个源节点的距离
+    targetNodes.forEach(source => {
+      const sourcePos = source.getPosition();
+      const distance = Math.sqrt(
+        Math.pow(targetPos.x - sourcePos.x, 2) + Math.pow(targetPos.y - sourcePos.y, 2)
+      );
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        nearestSource = source;
+      }
+    });
+
+    // 如果距离小于阈值，添加连接边
+    if (minDistance < threshold) {
+      const existingEdges = graph.getEdges();
+      const hasEdge = existingEdges.some(edge => {
+        return edge.getSourceCell() === nearestSource && edge.getTargetCell() === e.node;
+      });
+
+      if (!hasEdge) {
+        graph.removeEdge(edge)
+        edge = graph.addEdge({
+          source: { cell: nearestSource, port: 'port_4' },
+          target: { cell: e.node, port: 'port_3' },
+          attrs: {
+            line: {
+              stroke: colors[1],
+              strokeWidth: 1.5,
+              targetMarker: 'block', // 实心箭头
+            },
+          },
+          router: 'orth',
+          connector: {
+            name: 'custom-connect'
+          }
+        });
+      }
+    }
   })
 })
 </script>
