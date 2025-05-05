@@ -5,7 +5,8 @@
 // import Node from './demo/04_节点/index.vue'
 // import Edge from './demo/05_边/index.vue'
 // import LJZ from './demo/06_连接桩/index.vue'
-import CustomLJZ from './demo/07_自定义连接器/index.vue'
+// import CustomLJZ from './demo/07_自定义连接器/index.vue'
+import BU from './demo/08_节点和边的一些需求/index.vue'
 </script>
 
 <template>
@@ -28,5 +29,8 @@ import CustomLJZ from './demo/07_自定义连接器/index.vue'
   <!-- <LJZ /> -->
 
   <!-- 自定义连接桩 -->
-  <CustomLJZ />
+  <!-- <CustomLJZ /> -->
+
+  <!-- 节点和边的一些需求 -->
+  <BU />
 </template>
